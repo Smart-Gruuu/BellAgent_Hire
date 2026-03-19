@@ -1,12 +1,25 @@
+'use client';
+
 import Link from 'next/link';
 import Image from 'next/image';
+import { motion, useReducedMotion } from 'framer-motion';
+import { transitionBase, viewportOnce } from '@/lib/motion';
 
 export function Footer() {
+  const reduceMotion = useReducedMotion();
+  const t = reduceMotion ? { duration: 0 } : transitionBase;
+
   return (
     <footer className="overflow-hidden border-t border-gray-200 bg-white">
       <div className="container">
         <div className="py-[60px] flex flex-col md:flex-row justify-between items-center gap-4">
-          <div className="flex flex-col items-center md:items-start">
+          <motion.div
+            className="flex flex-col items-center md:items-start"
+            initial={reduceMotion ? false : { opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={viewportOnce}
+            transition={t}
+          >
             <Link href="/" className="flex items-center cursor-pointer">
               <Image
                 src="/data/bellagent-logo.svg"
@@ -38,8 +51,14 @@ export function Footer() {
                 About
               </Link>
             </div>
-          </div>
-          <div className="flex flex-col items-center md:items-start">
+          </motion.div>
+          <motion.div
+            className="flex flex-col items-center md:items-start"
+            initial={reduceMotion ? false : { opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={viewportOnce}
+            transition={{ ...t, delay: reduceMotion ? 0 : 0.1 }}
+          >
             <p className="font-extralight text-sm leading-5 text-gray-900 text-center md:text-left">
               <span className="font-semibold">Interested in learning more?</span> Chat with the Bellagent team
             </p>
@@ -53,9 +72,15 @@ export function Footer() {
                 Schedule a demo here
               </Link>
             </div>
-          </div>
+          </motion.div>
         </div>
-        <div className="border-t border-gray-200 py-6">
+        <motion.div
+          className="border-t border-gray-200 py-6"
+          initial={reduceMotion ? false : { opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={viewportOnce}
+          transition={{ ...t, delay: reduceMotion ? 0 : 0.06 }}
+        >
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-center">
             <p className="text-sm text-gray-500">
               © {new Date().getFullYear()} Bellagent. All rights reserved.
@@ -93,7 +118,7 @@ export function Footer() {
               </a>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </footer>
   );

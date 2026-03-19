@@ -3,14 +3,20 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { motion, useReducedMotion } from 'framer-motion';
+import { transitionBase } from '@/lib/motion';
 
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const reduceMotion = useReducedMotion();
+  const t = reduceMotion ? { duration: 0 } : transitionBase;
 
   return (
-    <header
+    <motion.header
       className="sticky top-0 z-50 bg-[var(--background)]"
-      style={{ opacity: 1, transform: 'none' }}
+      initial={reduceMotion ? false : { opacity: 0, y: -60 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={t}
     >
       <div className="mx-auto flex h-[5.125rem] max-w-7xl items-center justify-between px-4 lg:px-6">
         <div className="flex items-center">
@@ -72,32 +78,69 @@ export function Header() {
           `}
         >
           <nav className="inline-flex gap-0 text-sm w-full lg:w-auto order-2 lg:order-1">
-            <ul className="flex flex-col lg:flex-row flex-1 list-none items-center space-x-1 lg:space-x-1">
-              <li className="group m-0 [&:not(:first-child)]:mt-4 lg:[&:not(:first-child)]:m-0 relative w-full lg:w-auto">
+            <motion.ul
+              className="flex flex-col lg:flex-row flex-1 list-none items-center space-x-1 lg:space-x-1"
+              initial="hidden"
+              animate="show"
+              variants={{
+                hidden: {},
+                show: {
+                  transition: {
+                    staggerChildren: reduceMotion ? 0 : 0.07,
+                    delayChildren: reduceMotion ? 0 : 0.2,
+                  },
+                },
+              }}
+            >
+              <motion.li
+                className="group m-0 [&:not(:first-child)]:mt-4 lg:[&:not(:first-child)]:m-0 relative w-full lg:w-auto"
+                variants={{
+                  hidden: { opacity: 0, y: 10 },
+                  show: { opacity: 1, y: 0, transition: { ...t, duration: reduceMotion ? 0 : 0.45 } },
+                }}
+              >
                 <Link
                   href="/jobs"
                   className="inline-flex h-10 w-max items-center justify-center rounded-md bg-transparent px-2 lg:px-2.5 xl:px-3 py-2 text-gray-700 text-[15px] xl:text-[16px] font-semibold transition duration-300 hover:bg-[var(--accent)]"
                 >
                   Open Roles
                 </Link>
-              </li>
-              <li className="group m-0 [&:not(:first-child)]:mt-4 lg:[&:not(:first-child)]:m-0 relative w-full lg:w-auto">
+              </motion.li>
+              <motion.li
+                className="group m-0 [&:not(:first-child)]:mt-4 lg:[&:not(:first-child)]:m-0 relative w-full lg:w-auto"
+                variants={{
+                  hidden: { opacity: 0, y: 10 },
+                  show: { opacity: 1, y: 0, transition: { ...t, duration: reduceMotion ? 0 : 0.45 } },
+                }}
+              >
                 <Link
                   href="/about"
                   className="inline-flex h-10 w-max items-center justify-center rounded-md bg-transparent px-2 lg:px-2.5 xl:px-3 py-2 text-gray-700 text-[15px] xl:text-[16px] font-semibold transition duration-300 hover:bg-[var(--accent)]"
                 >
                   About Us
                 </Link>
-              </li>
-              <li className="group m-0 [&:not(:first-child)]:mt-4 lg:[&:not(:first-child)]:m-0 relative w-full lg:w-auto">
+              </motion.li>
+              <motion.li
+                className="group m-0 [&:not(:first-child)]:mt-4 lg:[&:not(:first-child)]:m-0 relative w-full lg:w-auto"
+                variants={{
+                  hidden: { opacity: 0, y: 10 },
+                  show: { opacity: 1, y: 0, transition: { ...t, duration: reduceMotion ? 0 : 0.45 } },
+                }}
+              >
                 <Link
                   href="/faq"
                   className="inline-flex h-10 w-max items-center justify-center rounded-md bg-transparent px-2 lg:px-2.5 xl:px-3 py-2 text-gray-700 text-[15px] xl:text-[16px] font-semibold transition duration-300 hover:bg-[var(--accent)]"
                 >
                   FAQ
                 </Link>
-              </li>
-              <li className="group m-0 [&:not(:first-child)]:mt-4 lg:[&:not(:first-child)]:m-0 relative w-full lg:w-auto">
+              </motion.li>
+              <motion.li
+                className="group m-0 [&:not(:first-child)]:mt-4 lg:[&:not(:first-child)]:m-0 relative w-full lg:w-auto"
+                variants={{
+                  hidden: { opacity: 0, y: 10 },
+                  show: { opacity: 1, y: 0, transition: { ...t, duration: reduceMotion ? 0 : 0.45 } },
+                }}
+              >
                 <Link
                   href="https://bellagent.ai"
                   target="_blank"
@@ -106,17 +149,22 @@ export function Header() {
                 >
                   bellagent.ai
                 </Link>
-              </li>
-            </ul>
+              </motion.li>
+            </motion.ul>
           </nav>
-          <div className="flex flex-wrap items-center gap-2 lg:ml-auto sticky lg:static top-0 z-[1] bg-[var(--background)] lg:bg-transparent p-4 lg:p-0 -mx-4 lg:m-0 order-1 lg:order-2">
+          <motion.div
+            className="flex flex-wrap items-center gap-2 lg:ml-auto sticky lg:static top-0 z-[1] bg-[var(--background)] lg:bg-transparent p-4 lg:p-0 -mx-4 lg:m-0 order-1 lg:order-2"
+            initial={reduceMotion ? false : { opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ ...t, delay: reduceMotion ? 0 : 0.48, duration: reduceMotion ? 0 : 0.45 }}
+          >
             <Link
               href="/jobs#apply"
               className="site-btn w-full sm:w-auto inline-flex h-10 items-center justify-center rounded-md bg-bellagent-purple px-4 py-2 text-white text-[15px] font-semibold transition duration-300 hover:opacity-90"
             >
               Get started
             </Link>
-          </div>
+          </motion.div>
         </div>
       </div>
 
@@ -129,6 +177,6 @@ export function Header() {
           onClick={() => setMobileOpen(false)}
         />
       )}
-    </header>
+    </motion.header>
   );
 }

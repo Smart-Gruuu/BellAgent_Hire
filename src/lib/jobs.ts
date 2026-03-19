@@ -336,6 +336,59 @@ export const JOBS: Job[] = [
       'This is a contract-based, task-specific role rather than a full-time position.\n\n' +
       'Selected candidates will receive clear written instructions, expected deliverables, and a point of contact from the Bellagent team. We aim to keep the process straightforward, professional, and well-documented from start to finish.',
   },
+  {
+    id: '6',
+    title: 'English Fluent Customer Interview Specialist (Fully Remote)',
+    department: 'Customer',
+    locations: ['Remote (global)'],
+    type: 'Full time',
+    workMode: 'Remote',
+    aboutBellagent: ABOUT_BELLAGENT,
+    roleOverview:
+      'We are looking for a strong English speaker to join our team in a fully remote capacity. You\'ll be conducting live interviews with customers to help us better understand their needs. This is not limited to just web technologies; we need someone who can handle broader business and technical conversations, ensuring our team captures the right insights.\n\n' +
+      'Your role is to maintain smooth and professional conversations during live interviews, understand customer challenges, and help translate those discussions into actionable steps.',
+    responsibilities: [
+      {
+        title: 'What You Will Do',
+        items: [
+          'Join live customer calls and interviews from anywhere in the world',
+          'Lead friendly, professional conversations in English',
+          'Ask insightful questions to uncover customer needs, pain points, and goals',
+          'Respond confidently to follow-up questions in real time',
+          'Understand technical topics beyond basic web work',
+          'Take detailed notes and summarize key insights from calls',
+          'Provide internal feedback to improve our product and service',
+        ],
+      },
+    ],
+    requirements: [
+      {
+        title: 'What We Are Looking For',
+        items: [
+          'Fluent spoken and written English',
+          'Strong communication skills and a natural speaking style',
+          'Comfort in leading customer calls via video or voice',
+          'Ability to discuss business and technical topics',
+          'Web product knowledge is helpful, but not a must—be ready to engage in broader topics',
+          'Excellent judgment, listening skills, and clear thinking in live conversations',
+          'Reliable, professional, and a strong team player',
+        ],
+      },
+      {
+        title: 'Nice To Have',
+        items: [
+          'Experience in customer discovery, support, sales, product interviews, or technical consulting',
+          'Experience working with clients from various backgrounds',
+          'Ability to turn customer feedback into actionable insights for the team',
+        ],
+      },
+    ],
+    additionalInformation:
+      'Why This Role Matters\n\n' +
+      'As a remote member of the team, you\'ll be one of the key voices talking directly with customers. Your work will help us identify customer pain points, improve our products, and make more informed decisions. If you\'re sharp, confident, and comfortable handling live conversations with customers, you\'ll have a direct impact on the success of our business.\n\n' +
+      'How To Apply\n\n' +
+      'Please send a brief message outlining your background, your English fluency, and any experience you have with live customer interviews. If you have a voice sample or a short intro video, feel free to share it!',
+  },
 ];
 
 export function getJobById(id: string): Job | undefined {
