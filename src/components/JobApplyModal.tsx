@@ -30,7 +30,7 @@ export function JobApplyModal({
 
   const [error, setError] = useState<string | null>(null);
 
-  const toEmail = 'nicegru6@gmail.com';
+  const toEmail = 'contactus@workatbellagent.com';
 
   const jobSummary = useMemo(() => {
     return `${jobTitle}\n${jobWorkMode} · ${jobType}\n${jobLocations.join(' · ')}`;

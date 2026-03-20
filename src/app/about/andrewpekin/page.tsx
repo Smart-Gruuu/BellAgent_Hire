@@ -84,8 +84,8 @@ export default function AndrewPekinPage() {
                 <span className="text-brand-700 text-[18px] leading-[28px] text-center mt-1">Founder &amp; CEO</span>
                 <span className="text-gray-600 text-[18px] leading-[28px] text-center mt-1">
                   Get in touch via email at{' '}
-                  <a className="text-brand-700 underline hover:no-underline" href="mailto:contactus@bellagent.ai">
-                    contactus@bellagent.ai
+                  <a className="text-brand-700 underline hover:no-underline" href="mailto:contactus@workatbellagent.com">
+                    contactus@workatbellagent.com
                   </a>
                 </span>
                 <div className="flex items-center gap-6 mt-4">
